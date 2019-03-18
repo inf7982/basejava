@@ -9,7 +9,7 @@ public class ArrayStorage {
     Resume[] storage = new Resume[10];
 
     void clear() {
-        Arrays.fill(storage, 0, i+1, null);
+        Arrays.fill(storage, 0, i + 1, null);
     }
 
     void save(Resume r) {
@@ -23,11 +23,24 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        return storage[Arrays.asList(storage).indexOf(uuid)];
+        for (int c = 0; c < storage.length; c++) {
+            if (storage[c].uuid == uuid) {
+                return storage[c];
+            }
+            else {
+                return null;
+            }
+        }
+        return null;
     }
 
     void delete(String uuid) {
-
+        for (int c = 0; c < storage.length; c++) {
+            if (storage[c].uuid == uuid) {
+                storage[c] = null;
+                break;
+            }
+        }
     }
 
     /**
@@ -35,11 +48,11 @@ public class ArrayStorage {
      */
 
     Resume[] getAll() {
-        Resume[] result = Arrays.copyOf(storage, i+1);
+        Resume[] result = Arrays.copyOf(storage, i + 1);
         return result;
     }
 
     int size() {
-        return i+1;
+        return i + 1;
     }
 }
