@@ -23,23 +23,21 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        for (Resume resume : storage) {
+        for (Resume resume : storage)
             if (resume.uuid.equals(uuid)) {
                 return resume;
             } else {
                 return null;
             }
-        }
         return null;
     }
 
     void delete(String uuid) {
-        for (int c = 0; c < storage.length; c++) {
+        for (int c = 0; c < storage.length; c++)
             if (storage[c].uuid.equals(uuid)) {
                 storage[c] = null;
                 break;
             }
-        }
     }
 
     /**
