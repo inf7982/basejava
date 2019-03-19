@@ -30,13 +30,15 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i <= count-1; i++) {
+        for (int i = 0; i <= count - 1; i++) {
             if (storage[i].uuid.equals(uuid)) {
                 storage[i] = null;
                 for (int c = i; c < count; c++) {
                     storage[c] = storage[c + 1];
                 }
                 count--;
+            } else {
+                System.out.println("Объект для удаления не найден");
             }
         }
     }
