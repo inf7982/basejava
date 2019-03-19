@@ -29,7 +29,7 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i <= count; i++) {
             if (storage[i].uuid.equals(uuid)) {
                 storage[i] = null;
                 for (int c = i; c < count; c++) {
