@@ -5,38 +5,38 @@ import java.util.Arrays;
  */
 
 public class ArrayStorage {
-    private int size = 0;
+    private int arraySize = 0;
     private Resume[] storage = new Resume[10000];
 
     void clear() {
-        Arrays.fill(storage, 0, size, null);
-        size = 0;
+        Arrays.fill(storage, 0, arraySize, null);
+        arraySize = 0;
     }
 
     void save(Resume r) {
         for (Resume resume : storage) {
-            if (storage[size] == null) {
-                storage[size] = r;
+            if (storage[arraySize] == null) {
+                storage[arraySize] = r;
                 break;
             }
         }
-        size++;
+        arraySize++;
     }
 
     Resume get(String uuid) {
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < arraySize; i++)
             if (storage[i].uuid.equals(uuid)) return storage[i];
         return null;
     }
 
     void delete(String uuid) {
-        for (int i = 0; i <= size - 1; i++) {
+        for (int i = 0; i <= arraySize - 1; i++) {
             if (storage[i].uuid.equals(uuid)) {
                 storage[i] = null;
-                for (int c = i; c < size; c++) {
+                for (int c = i; c < arraySize; c++) {
                     storage[c] = storage[c + 1];
                 }
-                size--;
+                arraySize--;
             } else {
                 System.out.println("Объект для удаления не найден");
             }
@@ -48,10 +48,10 @@ public class ArrayStorage {
      */
 
     Resume[] getAll() {
-        return Arrays.copyOf(storage, size);
+        return Arrays.copyOf(storage, arraySize);
     }
 
     int size() {
-        return size;
+        return arraySize;
     }
 }
