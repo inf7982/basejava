@@ -9,7 +9,7 @@ public class ArrayStorage {
     private Resume[] storage = new Resume[10000];
 
     void clear() {
-        Arrays.fill(storage, 0, count + 1, null);
+        Arrays.fill(storage, 0, count, null);
     }
 
     void save(Resume r) {
@@ -19,7 +19,7 @@ public class ArrayStorage {
                 break;
             }
         }
-        ++count;
+        count++;
     }
 
     Resume get(String uuid) {
