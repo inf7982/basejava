@@ -18,8 +18,8 @@ public class ArrayStorage {
                 storage[count] = r;
                 break;
             }
-            count++;
         }
+        ++count;
     }
 
     Resume get(String uuid) {
@@ -29,7 +29,7 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i <= count; i++) {
+        for (int i = 0; i <= count-1; i++) {
             if (storage[i].uuid.equals(uuid)) {
                 storage[i] = null;
                 for (int c = i; c < count; c++) {
@@ -45,10 +45,10 @@ public class ArrayStorage {
      */
 
     Resume[] getAll() {
-        return Arrays.copyOf(storage, count + 1);
+        return Arrays.copyOf(storage, count);
     }
 
     int size() {
-        return count + 1;
+        return count;
     }
 }
