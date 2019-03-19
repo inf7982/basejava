@@ -17,10 +17,10 @@ public class ArrayStorage {
         for (Resume resume : storage) {
             if (storage[arraySize] == null) {
                 storage[arraySize] = r;
+                arraySize++;
                 break;
             }
         }
-        arraySize++;
     }
 
     Resume get(String uuid) {
