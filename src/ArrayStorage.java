@@ -24,21 +24,21 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        for (int i = 0; i < arraySize; i++)
-            if (storage[i].uuid.equals(uuid)) return storage[i];
+        for (int i = 0; i < arraySize; i++) {
+            if (storage[i].uuid.equals(uuid)) {
+                return storage[i];
+            }
+        }
         return null;
     }
 
     void delete(String uuid) {
-        for (int i = 0; i <= arraySize - 1; i++) {
+        for (int i = 0; i < arraySize; i++) {
             if (storage[i].uuid.equals(uuid)) {
-                storage[i] = null;
-                for (int c = i; c < arraySize; c++) {
-                    storage[c] = storage[c + 1];
+                for (int j = i; j < arraySize; j++) {
+                    storage[j] = storage[j + 1];
                 }
                 arraySize--;
-            } else {
-                System.out.println("Объект для удаления не найден");
             }
         }
     }
