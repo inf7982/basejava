@@ -46,8 +46,8 @@ public class ArrayStorage {
         if (index == -1) {
             System.out.println("DELETE ERROR: Резюме не найдено");
         } else {
-            for (int j = index; j < arraySize; j++) {
-                storage[j] = storage[j + 1];
+            for (int i = index; i < arraySize; i++) {
+                storage[i] = storage[i + 1];
             }
             storage[arraySize - 1] = null;
             arraySize--;
