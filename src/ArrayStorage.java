@@ -25,7 +25,7 @@ public class ArrayStorage {
     public void save(Resume resume) {
         if (getIndex(resume.uuid) != -1) {
             System.out.println("SAVE ERROR: Резюме " + resume.uuid + " уже существует");
-        } else if (arraySize == storage.length) {
+        } else if (storage.length <= arraySize) {
             System.out.println("SAVE ERROR: Массив переполнен");
         } else {
             storage[arraySize] = resume;
@@ -66,7 +66,7 @@ public class ArrayStorage {
 
     private int getIndex(String uuid) {
         for (int i = 0; i < arraySize; i++) {
-            if (storage[i].toString() == uuid)
+            if (storage[i].getUuid() == uuid)
                 return i;
         }
         return -1;
