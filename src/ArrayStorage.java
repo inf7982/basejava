@@ -9,7 +9,7 @@ public class ArrayStorage {
     private Resume[] storage = new Resume[10000];
 
     public void update(Resume resume) {
-        int index = getIndex(resume.uuid);
+        int index = getIndex(resume.getUuid());
         if (index == -1) {
             System.out.println("UPDATE ERROR: Резюме не найдено");
         } else {
@@ -23,8 +23,8 @@ public class ArrayStorage {
     }
 
     public void save(Resume resume) {
-        if (getIndex(resume.uuid) != -1) {
-            System.out.println("SAVE ERROR: Резюме " + resume.uuid + " уже существует");
+        if (getIndex(resume.getUuid()) != -1) {
+            System.out.println("SAVE ERROR: Резюме " + resume.getUuid() + " уже существует");
         } else if (storage.length <= arraySize) {
             System.out.println("SAVE ERROR: Массив переполнен");
         } else {
@@ -34,11 +34,12 @@ public class ArrayStorage {
     }
 
     public Resume get(String uuid) {
-        if (getIndex(uuid) == -1) {
+        int index = getIndex(uuid);
+        if (index == -1) {
             System.out.println("GET ERROR: Резюме не найдено");
             return null;
         }
-        return storage[getIndex(uuid)];
+        return storage[index];
     }
 
     public void delete(String uuid) {
@@ -66,7 +67,7 @@ public class ArrayStorage {
 
     private int getIndex(String uuid) {
         for (int i = 0; i < arraySize; i++) {
-            if (storage[i].getUuid() == uuid)
+            if (storage[i].getUuid().equals(uuid))
                 return i;
         }
         return -1;

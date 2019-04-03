@@ -4,7 +4,7 @@
 public class Resume {
 
     // Unique identifier
-    protected String uuid;
+    private String uuid;
 
     public String getUuid() {
         return uuid;
